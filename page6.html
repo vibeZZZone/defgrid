@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лонгрид</title>
+  <link rel="icon" type="image/png" href="assets/photoo.png">
+  <link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">ЛОНГРИД<span>.</span></a>
+    <nav class="navigation">
+      <a href="index.html">Страница 1</a>
+      <a href="page2.html">Страница 2</a>
+      <a href="page3.html">Страница 3</a>
+      <a href="page4.html">Страница 4</a>
+      <a href="page5.html" class="active">Страница 5</a>
+      <a href="page6.html">Страница 6</a>
+      <a href="page7.html">Страница 7</a>
+    </nav>
+    <div class="header-mark">Встреча с Евгением Примаковым</div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="eyebrow"><span></span> PAGE 06 / 07</div>
+        <h1>ВУЗ vs Практика </h1>
+        <div class="short-line"></div>
+        <p class="body-text">Многие профессиональные навыки приобретаются только на практике. Нельзя научиться брать интервью, общаться с героями и ориентироваться в сложной ситуации исключительно по учебникам.
+<p class="body-text">Сам Примаков работал на радио «Эхо Москвы», в ТАСС и журнале «Коммерсантъ-Деньги», освещал события на Ближнем Востоке и руководил зарубежными бюро телеканалов. Такой опыт формируется через реальные задачи и необходимость самостоятельно принимать решения.</p>
+<p class="body-text">Однако работа в редакции не полностью заменяет университет. Начинающий журналист может научиться выполнять конкретные задачи, но не понимать общих принципов профессии. У опытных сотрудников также не всегда есть время подробно объяснять каждую ошибку.</p>
+<p class="body-text">Университет позволяет пробовать разные жанры, получать обратную связь и изучать профессиональные нормы. Но если студент годами изучает теорию, почти не создавая собственных материалов, образование не выполняет свою задачу.</p>
+<p class="body-text">С другой стороны, практика без понимания права, этики и принципов работы с информацией тоже может оказаться недостаточной. Поэтому важнее не противопоставлять университет и редакцию, а соединять их возможности.</p>
+      </div>
+
+     <div class="image-slot">
+  <img src="assets/photo6.jpg" class="custom-image">
+</div>
+    </section>
+
+
+<section class="editor-test">
+  <div class="editor-test-top">
+    <span class="editor-label">РЕДАКЦИОННАЯ СИТУАЦИЯ / 01</span>
+    <span class="editor-status">ПРАКТИКА</span>
+  </div>
+
+  <h2>Ты в редакции</h2>
+
+  <p class="editor-intro">
+    Представь, что ты журналист. До публикации новости остаётся
+    несколько минут, но информация пока не подтверждена.
+  </p>
+
+  <div class="editor-scenario">
+    <span class="scenario-number">СИТУАЦИЯ 01</span>
+    <p>
+      В Telegram появился пост о серьёзном происшествии в городе.
+      Автор утверждает, что есть пострадавшие, но не указывает
+      источник информации. Другие СМИ пока молчат.
+      Что ты сделаешь?
+    </p>
+  </div>
+
+  <div class="editor-answers">
+    <button class="editor-option" data-answer="a">
+      <span class="option-letter">А</span>
+      <span>Опубликую новость первым, указав, что информация предварительная.</span>
+      <span class="option-arrow">↗</span>
+    </button>
+
+    <button class="editor-option" data-answer="b">
+      <span class="option-letter">Б</span>
+      <span>Найду первоисточник и попробую подтвердить сведения.</span>
+      <span class="option-arrow">↗</span>
+    </button>
+
+    <button class="editor-option" data-answer="c">
+      <span class="option-letter">В</span>
+      <span>Дождусь, пока новость опубликует крупное СМИ.</span>
+      <span class="option-arrow">↗</span>
+    </button>
+  </div>
+
+  <div class="editor-feedback" id="editor-feedback" hidden>
+    <span class="feedback-label" id="feedback-label"></span>
+    <p id="feedback-text"></p>
+    <button class="editor-restart" id="editor-restart">
+      Попробовать ещё раз ↻
+    </button>
+  </div>
+</section>
+
+
+    <footer class="footer">
+      <span>Пихтовников Сергей Алексеевич</span>
+      <span>241-021</span>
+    </footer>
+  </main>
+
+<script>
+  const editorOptions = document.querySelectorAll('.editor-option');
+  const editorFeedback = document.getElementById('editor-feedback');
+  const feedbackLabel = document.getElementById('feedback-label');
+  const feedbackText = document.getElementById('feedback-text');
+  const editorRestart = document.getElementById('editor-restart');
+
+  const editorResponses = {
+    a: {
+      label: 'СНАЧАЛА ПРОВЕРЬ',
+      text: 'Оговорка о предварительном характере информации не снимает ответственности за публикацию. Если сведения окажутся ложными, редакция уже распространила неподтверждённое сообщение. Скорость важна, но не важнее проверки фактов.'
+    },
+    b: {
+      label: 'НАДЁЖНЫЙ ПЕРВЫЙ ШАГ',
+      text: 'Правильно. Попробуй установить источник сообщения, найти подтверждения и связаться с комп��тентными службами или очевидцами. До проверки не стоит выдавать сведения о происшествии за установленные факты. Если подтвердить информацию не удаётся, публикацию нужно отложить.'
+    },
+    c: {
+      label: 'ЧУЖАЯ ПУБЛИКАЦИЯ НЕ ЗАМЕНЯЕТ ПРОВЕРКУ',
+      text: 'Публикации крупных СМИ могут стать дополнительным ориентиром, но они тоже могут ошибаться или опираться на один источник. Журналисту важно самостоятельно проверять сведения и понимать, откуда они получены.'
+    }
+  };
+
+  editorOptions.forEach(function(button) {
+    button.addEventListener('click', function() {
+      const answer = button.dataset.answer;
+      const response = editorResponses[answer];
+
+      editorOptions.forEach(function(option) {
+        option.classList.remove('selected');
+        option.disabled = true;
+      });
+
+      button.classList.add('selected');
+
+      feedbackLabel.textContent = response.label;
+      feedbackText.textContent = response.text;
+      editorFeedback.hidden = false;
+    });
+  });
+
+  editorRestart.addEventListener('click', function() {
+    editorOptions.forEach(function(option) {
+      option.classList.remove('selected');
+      option.disabled = false;
+    });
+
+    editorFeedback.hidden = true;
+  });
+</script>
+
+</body>
+</html>

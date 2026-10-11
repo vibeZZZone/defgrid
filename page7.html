@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лонгрид</title>
+  <link rel="icon" type="image/png" href="assets/photoo.png">
+  <link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">ЛОНГРИД<span>.</span></a>
+    <nav class="navigation">
+      <a href="index.html">Страница 1</a>
+      <a href="page2.html">Страница 2</a>
+      <a href="page3.html">Страница 3</a>
+      <a href="page4.html">Страница 4</a>
+      <a href="page5.html">Страница 5</a>
+      <a href="page6.html">Страница 6</a>
+      <a href="page7.html" class="active">Страница 7</a>
+    </nav>
+    <div class="header-mark">Встреча с Евгением Примаковым</div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="eyebrow"><span></span> PAGE 07 / 07</div>
+        <h1>Что важнее диплома?</h1>
+        <div class="short-line"></div>
+        <p class="body-text">Критика Примакова ставит перед университетами неудобный вопрос: оправдывает ли содержание образовательных программ время, которое студенты на них тратят?
+Диплом сам по себе не гарантирует умения писать, находить темы, проверять факты или разговаривать с героями. Эти навыки требуют самостоятельной работы и практического опыта.
+Но это не означает, что университет бесполезен. Его ценность определяется тем, насколько изучаемые дисциплины помогают студенту понимать профессию и выполнять реальные задачи.
+Теория нужна, когда объясняет практику. Медиаправо помогает понимать границы допустимого, история журналистики показывает развитие СМИ, а анализ заголовков учит замечать способы воздействия на аудиторию. Если же обучение ограничивается определениями и экзаменами, студенту трудно увидеть в нём профессиональный смыс��.
+ <p class="body-text">Возможно, главный вопрос заключается не в том, нужно ли журналисту высшее образование, а в том, каким оно должно быть. Университет не способен заменить редакцию, а редакционная работа не всегда заменяет системное обучение.</p>
+ <p class="body-text">Хорошая программа должна давать возможность не только изучать журналистику, но и заниматься ею: писать материалы, проводить интервью, проверять информацию и получать редакторскую оценку.</p>
+<p class="body-text">В конечном счёте журналистом человека делает не диплом, а способность самостоятельно работать с информацией и отвечать за результат. Университет может помочь сформировать эти качества, если учит не просто говорить о журналистике, а заниматься ею.</p>
+      </div>
+
+    <div class="image-slot">
+  <img src="assets/photo7.jpg" class="custom-image">
+</div>
+    </section>
+
+<section class="question-epilogue" id="question-epilogue">
+
+  <!-- Первый экран: вопрос -->
+  <div class="epilogue-screen epilogue-start" id="epilogue-start">
+    <img
+      class="epilogue-photo"
+      src="assets/photo9.png"
+      alt="Пространство для разговора о журналистике"
+    >
+
+    <div class="epilogue-shade"></div>
+
+    <div class="epilogue-content">
+      <span class="epilogue-label">СТРАНИЦА 07 / ЭПИЛОГ</span>
+
+      <h1>А теперь<br>твой вопрос.</h1>
+
+      <p class="epilogue-lead">
+        Представь, что у тебя есть возможность спросить
+        о журналистском образовании всё, что действительно важно.
+        Что бы ты хотел узнать?
+      </p>
+
+      <form id="journalism-question-form">
+        <label class="epilogue-input-label" for="journalism-question">
+          ТВОЙ ВОПРОС
+        </label>
+
+        <textarea
+          id="journalism-question"
+          name="journalism-question"
+          maxlength="400"
+          rows="3"
+          placeholder="Например: можно ли стать хорошим журналистом без профильного образования?"
+          required
+        ></textarea>
+
+        <div class="epilogue-form-bottom">
+          <span id="question-counter">0 / 400</span>
+          <button type="submit" class="epilogue-submit">
+            Сохранить вопрос ↗
+          </button>
+        </div>
+      </form>
+
+      <p class="epilogue-note">
+        Вопрос останется на этом устройстве только на время просмотра страницы.
+        Он не отправляется на сервер.
+      </p>
+    </div>
+  </div>
+
+  <!-- Второй экран: архив -->
+  <div class="epilogue-screen epilogue-archive" id="epilogue-archive" hidden>
+    <img
+      class="epilogue-photo"
+      src="assets/photo10.png"
+      alt=""
+    >
+
+    <div class="epilogue-shade"></div>
+
+    <div class="archive-content">
+      <span class="epilogue-label">АРХИВ / ЗАПИСЬ 001</span>
+
+      <p class="archive-caption">ВОПРОС ЗАПИСАН</p>
+
+      <blockquote id="question-reveal"></blockquote>
+
+      <div class="archive-divider"></div>
+
+      <p class="archive-typing" id="archive-typing"></p>
+
+      <button type="button" class="epilogue-continue" id="epilogue-continue" hidden>
+        Продолжить ↗
+      </button>
+    </div>
+  </div>
+
+  <!-- Третий экран: финал -->
+  <div class="epilogue-screen epilogue-finish" id="epilogue-finish" hidden>
+    <img
+      class="epilogue-photo"
+      src="assets/photo12.jpg"
+      alt=""
+    >
+
+    <div class="epilogue-shade"></div>
+
+    <div class="finish-content">
+      <span class="epilogue-label">КОНЕЦ МАТЕРИАЛА</span>
+
+      <p class="finish-pretitle">ЖУРНАЛИСТИКА НАЧИНАЕТСЯ С ВОПРОСА</p>
+
+      <h2>
+        Не обязательно<br>
+        знать все ответы.<br>
+        <span>Важно не переставать спрашивать.</span>
+      </h2>
+
+      <p class="finish-text">
+        Образование даёт инструменты, практика учит ими пользоваться,
+        а собственные вопросы помогают понять, каким журналистом
+        ты хочешь стать.
+      </p>
+
+      <div class="finish-quote">
+        <span>ТВОЙ ВОПРОС</span>
+        <p id="final-question"></p>
+      </div>
+
+      <button type="button" class="epilogue-restart" id="epilogue-restart">
+        Задать другой вопрос ↻
+      </button>
+
+      <a href="index.html" class="epilogue-home">
+        Вернуться к началу лонгрида
+      </a>
+    </div>
+  </div>
+
+</section>
+
+
+    <footer class="footer">
+      <span>Пихтовников Сергей Алексеевич</span>
+      <span>241-021</span>
+    </footer>
+  </main>
+
+<script>
+(function () {
+  const form = document.getElementById('journalism-question-form');
+  if (!form) return;
+
+  const questionInput = document.getElementById('journalism-question');
+  const counter = document.getElementById('question-counter');
+
+  const startScreen = document.getElementById('epilogue-start');
+  const archiveScreen = document.getElementById('epilogue-archive');
+  const finishScreen = document.getElementById('epilogue-finish');
+
+  const questionReveal = document.getElementById('question-reveal');
+  const archiveTyping = document.getElementById('archive-typing');
+  const continueButton = document.getElementById('epilogue-continue');
+
+  const finalQuestion = document.getElementById('final-question');
+  const restartButton = document.getElementById('epilogue-restart');
+
+  const archiveText =
+    'У этого вопроса нет универсального ответа. ' +
+    'Образование может дать знания, инструменты и профессиональную среду. ' +
+    'Но понимание журналистики приходит и через практику, ошибки, ' +
+    'сомнения и разговоры с людьми.';
+
+  let typingTimer = null;
+  let activeRun = 0;
+
+  questionInput.addEventListener('input', function () {
+    counter.textContent = questionInput.value.length + ' / 400';
+  });
+
+  function typeText(text, runId) {
+    let position = 0;
+    archiveTyping.textContent = '';
+    continueButton.hidden = true;
+
+    function typeNext() {
+      if (runId !== activeRun) return;
+
+      if (position < text.length) {
+        archiveTyping.textContent += text.charAt(position);
+        position++;
+
+        const character = text.charAt(position - 1);
+        const delay = '.,!?'.includes(character) ? 300 : 28;
+
+        typingTimer = setTimeout(typeNext, delay);
+      } else {
+        continueButton.hidden = false;
+      }
+    }
+
+    typeNext();
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const question = questionInput.value.trim();
+    if (!question) {
+      questionInput.focus();
+      return;
+    }
+
+    activeRun++;
+    clearTimeout(typingTimer);
+
+    questionReveal.textContent = '«' + question + '»';
+    finalQuestion.textContent = question;
+
+    startScreen.hidden = true;
+    finishScreen.hidden = true;
+    archiveScreen.hidden = false;
+    continueButton.hidden = true;
+
+    typeText(archiveText, activeRun);
+
+    document.getElementById('question-epilogue').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+
+  continueButton.addEventListener('click', function () {
+    archiveScreen.hidden = true;
+    finishScreen.hidden = false;
+
+    document.getElementById('question-epilogue').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+
+  restartButton.addEventListener('click', function () {
+    activeRun++;
+    clearTimeout(typingTimer);
+
+    archiveScreen.hidden = true;
+    finishScreen.hidden = true;
+    startScreen.hidden = false;
+
+    questionInput.value = '';
+    counter.textContent = '0 / 400';
+    archiveTyping.textContent = '';
+    questionReveal.textContent = '';
+    finalQuestion.textContent = '';
+    continueButton.hidden = true;
+
+    document.getElementById('question-epilogue').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    questionInput.focus();
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лонгрид</title>
+  <link rel="icon" type="image/png" href="assets/photoo.png">
+  <link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">ЛОНГРИД<span>.</span></a>
+    <nav class="navigation">
+      <a href="index.html">Страница 1</a>
+      <a href="page2.html">Страница 2</a>
+      <a href="page3.html">Страница 3</a>
+      <a href="page4.html" class="active">Страница 4</a>
+      <a href="page5.html">Страница 5</a>
+      <a href="page6.html">Страница 6</a>
+      <a href="page7.html">Страница 7</a>
+    </nav>
+    <div class="header-mark">Встреча с Евгением Примаковым</div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="eyebrow"><span></span> PAGE 05 / 07</div>
+        <h1>Журфак сегодня</h1>
+        <div class="short-line"></div>
+        <p class="body-text">Современное журналистское образование не ограничивается лекциями. Например, на факультете журналистики МГУ работают учебный мультимедийный центр и студенческие СМИ, где учащиеся могут пробовать себя в разных форматах.</p>
+<p class="body-text">Университет помогает разобраться в истории профессии, медиаправе, этике и принципах проверки информации. Эти знания позволяют не только выполнять редакционные задачи, но и понимать, почему одни методы эффективны, а другие приводят к ошибкам.</p>
+<p class="body-text">Например, анализ заголовков кажется бесполезным, если сводится к запоминанию классификаций. Но он приобретает смысл, когда помогает понять, как заголовок влияет на восприятие материала и где проходит граница между выразительностью и манипуляцией.</p>
+<p class="body-text">То же относится к жанрам. Знать определения недостаточно, но понимание различий между новостью, репортажем и интервью помогает выбрать подходящую форму для материала.
+Поэтому вопрос не в том, нужны ли журналисту теоретические знания, а в том, помогают ли они лучше выполнять работу.</p>
+      </div>
+
+     <div class="image-slot">
+  <img src="assets/photo5.jpg" alt class="custom-image">
+</div>
+    </section>
+
+
+<section class="balance-test">
+  <div class="balance-top">
+    <span class="balance-label">СОВРЕМЕННЫЙ ЖУРФАК / 01</span>
+    <span class="balance-status">ТВОЙ ВЫБОР</span>
+  </div>
+
+  <h2>Теория или практика?</h2>
+
+  <p class="balance-intro">
+    Чему нужно уделять больше времени при подготовке журналиста?
+    Распредели 100% между теорией и практикой.
+  </p>
+
+  <div class="balance-item">
+    <div class="balance-heading">
+      <label for="theory-slider">Теория</label>
+      <span id="theory-value">60%</span>
+    </div>
+    <input
+      type="range"
+      id="theory-slider"
+      min="0"
+      max="100"
+      value="60"
+      aria-label="Доля теории"
+    />
+    <p class="balance-description">
+      Медиаправо, этика, история журналистики, жанры и работа с источниками.
+    </p>
+  </div>
+
+  <div class="balance-item">
+    <div class="balance-heading">
+      <label for="practice-slider">Практика</label>
+      <span id="practice-value">40%</span>
+    </div>
+    <input
+      type="range"
+      id="practice-slider"
+      min="0"
+      max="100"
+      value="40"
+      aria-label="Доля практики"
+    />
+    <p class="balance-description">
+      Интервью, репортажи, поиск информации, работа в редакции и проверка фактов.
+    </p>
+  </div>
+
+  <div class="balance-total">
+    <span>ОБЩИЙ ОБЪЁМ</span>
+    <strong id="balance-total">100%</strong>
+  </div>
+
+  <div class="balance-bar" aria-label="Распределение теории и практики">
+    <div class="balance-bar-theory" id="theory-bar"></div>
+    <div class="balance-bar-practice" id="practice-bar"></div>
+  </div>
+
+  <div class="balance-result" aria-live="polite">
+    <span class="balance-result-label">ТВОЙ БАЛАНС</span>
+    <p id="balance-feedback">
+      Ты вы��ираешь относительно равный баланс теории и практики.
+    </p>
+  </div>
+</section>
+
+
+    <footer class="footer">
+      <span>Пихтовников Сергей Алексеевич</span>
+      <span>241-021</span>
+    </footer>
+  </main>
+
+<script>
+  const theorySlider = document.getElementById('theory-slider');
+  const practiceSlider = document.getElementById('practice-slider');
+
+  const theoryValue = document.getElementById('theory-value');
+  const practiceValue = document.getElementById('practice-value');
+
+  const theoryBar = document.getElementById('theory-bar');
+  const practiceBar = document.getElementById('practice-bar');
+
+  const balanceFeedback = document.getElementById('balance-feedback');
+
+  function updateBalance(changedSlider) {
+    let theory = Number(theorySlider.value);
+    let practice = 100 - theory;
+
+    if (changedSlider === 'practice') {
+      practice = Number(practiceSlider.value);
+      theory = 100 - practice;
+    }
+
+    theorySlider.value = theory;
+    practiceSlider.value = practice;
+
+    theoryValue.textContent = theory + '%';
+    practiceValue.textContent = practice + '%';
+
+    theoryBar.style.width = theory + '%';
+    practiceBar.style.width = practice + '%';
+
+    if (theory >= 70) {
+      balanceFeedback.textContent =
+        'Ты делаешь ставку на фундаментальные знания. Теория помогает понимать профессию, но без редакционной практики эти знания трудно применить в реальной работе.';
+    } else if (practice >= 70) {
+      balanceFeedback.textContent =
+        'Ты считаешь, что журналистике лучше учиться в деле. Практика помогает освоить профессию, однако без знания этики, права и методов проверки информации легко допустить ошибку.';
+    } else if (theory >= 45 && practice >= 45) {
+      balanceFeedback.textContent =
+        'Ты выбираешь относительно равный баланс теории и практики. Такой подход позволяет изучать основы профессии и одновременно учиться применять их в редакционной работе.';
+    } else if (theory > practice) {
+      balanceFeedback.textContent =
+        'Для тебя важнее теоретическая подготовка. Она помогает разобраться в принципа�� журналистики, но стоит оставлять достаточно времени для интервью, репортажей и проверки фактов.';
+    } else {
+      balanceFeedback.textContent =
+        'Ты отдаёшь предпочтение практике. Работа над реальными материалами развивает профессиональные навыки, но теория помогает принимать обоснованные решения и избегать типичных ошибок.';
+    }
+  }
+
+  theorySlider.addEventListener('input', function() {
+    updateBalance('theory');
+  });
+
+  practiceSlider.addEventListener('input', function() {
+    updateBalance('practice');
+  });
+
+  updateBalance('theory');
+</script>
+
+</body>
+</html>

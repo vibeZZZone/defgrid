@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лонгрид</title>
+  <link rel="icon" type="image/png" href="assets/photoo.png">
+  <link rel="stylesheet" href="assets/style.css">
+
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">ЛОНГРИД<span>.</span></a>
+    <nav class="navigation">
+      <a href="index.html">Страница 1</a>
+      <a href="page2.html">Страница 2</a>
+      <a href="page3.html">Страница 3</a>
+      <a href="page4.html" class="active">Страница 4</a>
+      <a href="page5.html">Страница 5</a>
+      <a href="page6.html">Страница 6</a>
+      <a href="page7.html">Страница 7</a>
+    </nav>
+    <div class="header-mark">Встреча с Евгением Примаковым</div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="eyebrow"><span></span> PAGE 04 / 07</div>
+        <h1>Что изменилось после распада СССР?</h1>
+        <div class="short-line"></div>
+        <p class="body-text">После распада СССР российская медиасреда изменилась. Появились новые издания, частные телеканалы, интернет-СМИ и социальные сети. Журналистам пришлось осваивать новые способы работы с информацией.</p>
+<p class="body-text">Сегодня недостаточно уметь писать связный текст. Необходимо проверять источники, записывать видео, монтировать материалы и адаптировать публикации под разные платформы.</p>
+ <p class="body-text">Университетские программы постепенно меняются, но образовательный процесс требует времени. В результате студент может потратить много часов на теоретические дисциплины, но впервые столкнуться с настоящей редакционной работой только во время практики.</p>
+ <p class="body-text">Проблема не в самой теории. Журналисту необходимо понимать устройство СМИ, профессиональную этику и правила публикации информации. Вопрос в том, сколько времени следует уделять этим знаниям и как связывать их с практикой.
+</p>
+      </div>
+
+      <div class="image-slot">
+  <img src="assets/photo4.jpg" alt="" class="custom-image">
+</div>
+    </section>
+
+<section class="editor-game" id="editor-game">
+  <div class="game-top">
+    <span class="game-label">МЕДИАБИЗНЕС / 1990-е</span>
+    <span class="game-tag">ИНТЕРАКТИВ</span>
+  </div>
+
+  <div class="game-heading">
+    <span class="game-kicker">ТВОЯ РЕДАКЦИЯ. ТВОИ РЕШЕНИЯ.</span>
+    <h2>Редактор 1990-х</h2>
+    <p>
+      Ты запускаешь независимую газету в 1990-е годы.
+      Денег мало, конкуренты уже на рынке, а читатели ждут
+      интересных и достоверных материалов. У тебя есть
+      условные 100 денежных единиц. Сможешь удержать издание на плаву?
+    </p>
+  </div>
+
+  <div class="game-stats">
+    <div class="game-stat">
+      <span>БЮДЖЕТ</span>
+      <strong id="game-budget">100</strong>
+    </div>
+    <div class="game-stat">
+      <span>РЕПУТАЦИЯ</span>
+      <strong id="game-reputation">50</strong>
+    </div>
+    <div class="game-stat">
+      <span>ОХВАТ</span>
+      <strong id="game-reach">30</strong>
+    </div>
+  </div>
+
+  <div class="game-progress">
+    <div class="game-progress-fill" id="game-progress-fill"></div>
+  </div>
+
+  <div class="game-round">
+    <div class="game-round-top">
+      <span id="game-round-number">РЕШЕНИЕ 01 / 03</span>
+      <span class="game-round-label">ВЫБЕРИ СТРАТЕГИЮ</span>
+    </div>
+
+    <h3 id="game-question">С чего начнём?</h3>
+    <p class="game-description" id="game-description"></p>
+
+    <div class="game-choices" id="game-choices"></div>
+
+    <div class="game-message" id="game-message" hidden aria-live="polite">
+      <span class="game-message-label" id="game-message-label"></span>
+      <p id="game-message-text"></p>
+      <button class="game-next" id="game-next">Следующее решение ↗</button>
+    </div>
+  </div>
+
+  <div class="game-ending" id="game-ending" hidden aria-live="polite">
+    <span class="game-ending-label">ИТОГ РЕДАКЦИОННОЙ СТРАТЕГИИ</span>
+    <h3 id="game-ending-title"></h3>
+    <p id="game-ending-text"></p>
+
+    <div class="game-final-stats" id="game-final-stats"></div>
+
+    <button class="game-restart" id="game-restart">
+      Начать заново ↻
+    </button>
+  </div>
+
+  <p class="game-note">
+    Игра представляет собой условную модель. Суммы и показатели
+    придуманы для интерактива и не являются исторической статистикой.
+  </p>
+</section>
+
+
+    <footer class="footer">
+      <span>Пихтовников Сергей Алексеевич</span>
+      <span>241-021</span>
+    </footer>
+  </main>
+
+<script>
+(function () {
+  const game = document.getElementById('editor-game');
+  if (!game) return;
+
+  const budgetEl = document.getElementById('game-budget');
+  const reputationEl = document.getElementById('game-reputation');
+  const reachEl = document.getElementById('game-reach');
+  const progressFill = document.getElementById('game-progress-fill');
+
+  const roundNumber = document.getElementById('game-round-number');
+  const questionEl = document.getElementById('game-question');
+  const descriptionEl = document.getElementById('game-description');
+  const choicesEl = document.getElementById('game-choices');
+
+  const messageEl = document.getElementById('game-message');
+  const messageLabel = document.getElementById('game-message-label');
+  const messageText = document.getElementById('game-message-text');
+  const nextButton = document.getElementById('game-next');
+
+  const endingEl = document.getElementById('game-ending');
+  const endingTitle = document.getElementById('game-ending-title');
+  const endingText = document.getElementById('game-ending-text');
+  const finalStats = document.getElementById('game-final-stats');
+  const restartButton = document.getElementById('game-restart');
+
+  const rounds = [
+    {
+      question: 'На что потратить первые деньги?',
+      description:
+        'Газета только запускается. Нужно решить, что важнее на старте: сильная команда, большой тираж или финансовая подушка.',
+      choices: [
+        {
+          title: 'Нанять ещё одного журналиста',
+          cost: 35,
+          reputation: 10,
+          reach: 5,
+          feedback:
+            'В редакции стало больше рабочих рук. Журналисты смогут готовить больше материалов, но на печать и другие расходы останется меньше денег.'
+        },
+        {
+          title: 'Увеличить тираж газеты',
+          cost: 25,
+          reputation: 0,
+          reach: 15,
+          feedback:
+            'Газета попадёт к большему числу читателей. Но сам по себе большой тираж не гарантирует, что издание будут покупать и читать постоянно.'
+        },
+        {
+          title: 'Сэкономить и оставить деньги в резерве',
+          cost: 10,
+          reputation: 0,
+          reach: 2,
+          feedback:
+            'У редакции остаётся финансовая подушка на непредвиденные расходы. Однако экономия на старте может замедлить рост издания.'
+        }
+      ]
+    },
+    {
+      question: 'Как завоевать доверие читателей?',
+      description:
+        'Конкуренты публикуют громкие заголовки. Тебе нужен материал, который выделит газету, но бюджет по-прежнему ограничен.',
+      choices: [
+        {
+          title: 'Оплатить журналистское расследование',
+          cost: 30,
+          reputation: 18,
+          reach: 5,
+          feedback:
+            'Расследование может укрепить репутацию издания, если информация подтверждена и материал подготовлен качественно. Но результат не гарантирован, а работа требует времени и денег.'
+        },
+        {
+          title: 'Сделать ставку на сенсационные заголовки',
+          cost: 15,
+          reputation: -8,
+          reach: 15,
+          feedback:
+            'Яркие заголовки способны привлечь внимание и увеличить продажи. Но если обещания не соответствуют содержанию, читатели могут перестать доверять газете.'
+        },
+        {
+          title: 'Проверять сведения и брать интервью у нескольких источников',
+          cost: 20,
+          reputation: 10,
+          reach: 7,
+          feedback:
+            'Редакция тратит ресурсы на проверку информации, зато снижает риск ошибок. Последовательная работа с источниками помогает постепенно укреплять доверие аудитории.'
+        }
+      ]
+    },
+    {
+      question: 'Как удержать газету на плаву?',
+      description:
+        'Расходы растут. Нужно решить, как обеспечить будущее издания и при этом не потерять читателей.',
+      choices: [
+        {
+          title: 'Вложиться в печать и распространение',
+          cost: 25,
+          reputation: 2,
+          reach: 18,
+          feedback:
+            'Больше экземпляров могут добраться до аудитории. Но важно учитывать спрос: непроданный тираж тоже означает расходы.'
+        },
+        {
+          title: 'Продать рекламные места',
+          cost: 10,
+          reputation: -2,
+          reach: 3,
+          feedback:
+            'Реклама помогает покрывать расходы редакции. Однако изданию важно сохранять редакционную самостоятельность и не позволять рекламным интересам диктовать содержание материалов.'
+        },
+        {
+          title: 'Сохранить деньги и развивать постоянную аудиторию',
+          cost: 15,
+          reputation: 8,
+          reach: 5,
+          feedback:
+            'Ты делаешь ставку на устойчивое развитие: регулярные материалы, доверие читателей и контроль расходов. Такой подход не обещает быстрого роста, но помогает избежать лишнего риска.'
+        }
+      ]
+    }
+  ];
+
+  let currentRound = 0;
+  let budget = 100;
+  let reputation = 50;
+  let reach = 30;
+  let selected = false;
+
+  function clamp(value) {
+    return Math.max(0, Math.min(100, value));
+  }
+
+  function updateStats() {
+    budgetEl.textContent = budget;
+    reputationEl.textContent = reputation;
+    reachEl.textContent = reach;
+  }
+
+  function renderRound() {
+    const round = rounds[currentRound];
+
+    selected = false;
+    messageEl.hidden = true;
+    choicesEl.innerHTML = '';
+
+    roundNumber.textContent =
+      'РЕШЕНИЕ 0' + (currentRound + 1) + ' / 03';
+
+    questionEl.textContent = round.question;
+    descriptionEl.textContent = round.description;
+
+    progressFill.style.width =
+      ((currentRound + 1) / rounds.length * 100) + '%';
+
+    round.choices.forEach(function (choice, index) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'game-choice';
+
+      const letter = document.createElement('span');
+      letter.className = 'game-choice-letter';
+      letter.textContent = ['А', 'Б', 'В'][index];
+
+      const content = document.createElement('span');
+      content.textContent =
+        choice.title + ' · расходы: ' + choice.cost;
+
+      button.appendChild(letter);
+      button.appendChild(content);
+
+      if (budget < choice.cost) {
+        button.disabled = true;
+        content.textContent += ' · недостаточно средств';
+      }
+
+      button.addEventListener('click', function () {
+        chooseOption(button, choice);
+      });
+
+      choicesEl.appendChild(button);
+    });
+
+    updateStats();
+  }
+
+  function chooseOption(button, choice) {
+    if (selected || budget < choice.cost) return;
+
+    selected = true;
+
+    budget -= choice.cost;
+    reputation = clamp(reputation + choice.reputation);
+    reach = clamp(reach + choice.reach);
+
+    updateStats();
+
+    choicesEl.querySelectorAll('button').forEach(function (option) {
+      option.disabled = true;
+      option.classList.remove('selected');
+    });
+
+    button.classList.add('selected');
+
+    messageLabel.textContent =
+      'РЕШЕНИЕ ПРИНЯТО / −' + choice.cost + ' ЕД.';
+
+    messageText.textContent = choice.feedback;
+    messageEl.hidden = false;
+
+    nextButton.textContent =
+      currentRound === rounds.length - 1
+        ? 'Подвести итоги ↗'
+        : 'Следующее решение ↗';
+  }
+
+  function showEnding() {
+    document.querySelector('#editor-game .game-round').hidden = true;
+    endingEl.hidden = false;
+    progressFill.style.width = '100%';
+
+    if (budget <= 0) {
+      endingTitle.textContent = 'Редакция на грани';
+      endingText.textContent =
+        'Почти все средства потрачены. Даже при хорошей репутации ' +
+        'изданию будет трудно оплачивать дальнейшую работу. ' +
+        'Финансовое планирование оказалось не менее важным, чем содержание газеты.';
+    } else if (reputation >= 70 && reach >= 60) {
+      endingTitle.textContent = 'Газета нашла свою аудиторию';
+      endingText.textContent =
+        'Тебе удалось совместить доверие читателей с заметным охватом. ' +
+        'Теперь важно удерживать качество материалов и следить за расходами.';
+    } else if (reputation >= 65) {
+      endingTitle.textContent = 'Репутация важнее громких цифр';
+      endingText.textContent =
+        'Ты сделал ставку на достоверность и доверие аудитории. ' +
+        'Газета может расти медленнее конкурентов, но у неё есть основа ' +
+        'для долгосрочных отношений с читателями.';
+    } else if (reach >= 60) {
+      endingTitle.textContent = 'Газету заметили';
+      endingText.textContent =
+        'Твоё издание привлекло широкую аудиторию, но теперь важно ' +
+        'превратить внимание в устойчивое доверие. Большой охват ' +
+        'не всегда означает сильную репутацию.';
+    } else if (budget >= 40) {
+      endingTitle.textContent = 'Осторожная стратегия';
+      endingText.textContent =
+        'Ты сохранил заметную часть бюджета, но газета пока не стала ' +
+        'достаточно заметной. Следующий шаг - решить, когда стоит ' +
+        'вкладываться в развитие, а когда продолжать экономить.';
+    } else {
+      endingTitle.textContent = 'Редакция продолжает борьбу';
+      endingText.textContent =
+        'Твои решения дали неоднозначный результат. У издания есть ' +
+        'сильные стороны, но придётся внимательнее распределять расходы, ' +
+        'развивать аудиторию и сохранять доверие читателей.';
+    }
+
+    finalStats.innerHTML = '';
+
+    [
+      ['БЮДЖЕТ', budget],
+      ['РЕПУТАЦИЯ', reputation],
+      ['ОХВАТ', reach]
+    ].forEach(function (item) {
+      const card = document.createElement('div');
+      card.className = 'game-final-stat';
+
+      const label = document.createElement('span');
+      label.textContent = item[0];
+
+      const value = document.createElement('strong');
+      value.textContent = item[1];
+
+      card.appendChild(label);
+      card.appendChild(value);
+      finalStats.appendChild(card);
+    });
+  }
+
+  nextButton.addEventListener('click', function () {
+    if (!selected) return;
+
+    if (currentRound < rounds.length - 1) {
+      currentRound += 1;
+      renderRound();
+    } else {
+      showEnding();
+    }
+  });
+
+  restartButton.addEventListener('click', function () {
+    currentRound = 0;
+    budget = 100;
+    reputation = 50;
+    reach = 30;
+
+    endingEl.hidden = true;
+    document.querySelector('#editor-game .game-round').hidden = false;
+
+    renderRound();
+  });
+
+  renderRound();
+})();
+</script>
+
+</body>
+</html>

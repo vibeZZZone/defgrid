@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+ <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лонгрид</title>
+  <link rel="icon" type="image/png" href="assets/photoo.png">
+  <link rel="stylesheet" href="assets/style.css">
+
+
+  <style>
+    /* Текст во всю ширину страницы */
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 30px;
+      min-height: auto;
+    }
+
+    .hero-text {
+      width: 100%;
+      padding: 30px 0 0;
+      min-width: 0;
+    }
+
+    .hero-text .body-text {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 18px;
+    }
+
+    .image-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      gap: 24px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .image-column .image-slot {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      height: auto;
+      max-height: 590px;
+      min-height: 0;
+      position: relative;
+      top: auto;
+    }
+
+    .image-column .quiz-card {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        gap: 20px;
+      }
+
+      .hero-text {
+        padding-top: 10px;
+      }
+
+      .image-column {
+        grid-template-columns: 1fr;
+      }
+
+      .image-column .image-slot {
+        position: relative;
+        top: auto;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+      }
+
+      h1 {
+        font-size: clamp(42px, 10vw, 70px);
+        letter-spacing: -2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <a href="index.html" class="logo">ЛОНГРИД<span>.</span></a>
+
+    <nav class="navigation">
+      <a href="index.html">Страница 1</a>
+      <a href="page2.html">Страница 2</a>
+      <a href="page3.html" class="active">Страница 3</a>
+      <a href="page4.html">Страница 4</a>
+      <a href="page5.html">Страница 5</a>
+      <a href="page6.html">Страница 6</a>
+      <a href="page7.html">Страница 7</a>
+    </nav>
+
+    <div class="header-mark">Встреча с Евгением Примаковым</div>
+  </header>
+
+  <main class="page">
+
+    <section class="hero">
+
+      <!-- ТЕКСТ НА ВСЮ ШИРИНУ -->
+
+      <div class="hero-text">
+
+        <div class="eyebrow">
+          <span></span> PAGE 03 / 07
+        </div>
+
+        <h1>Журналистское образование в СССР</h1>
+
+        <div class="short-line"></div>
+
+        <p class="body-text">
+          В 1947 году в МГУ открыли отделение журналистики, а в 1952 году на его основе появился самостоятельный факультет.
+        </p>
+
+        <p class="body-text">
+          Советское журналистское образование было тесно связано с государственной идеологией. Пресса рассматривалась не только как источник информации, но и как инструмент общественного воспитания.
+        </p>
+
+        <p class="body-text">
+          Однако вопрос о пользе университетского образования шире идеологии. Насколько изучение теории помогает справляться с реальными журналистскими задачами? Знание жанров и принципов построения текста может быть полезным, но само по себе не научит журналиста находить героев, задавать вопросы или проверять противоречивые свидетельства. Теория имеет смысл, когда помогает понимать практику, а не становится самоцелью.
+        </p>
+
+        <p class="body-text">
+          Поэтому слова Примакова стоит рассматривать прежде всего как вопрос о соотношении академических знаний и профессиональных навыков.
+        </p>
+
+      </div>
+
+      <!-- ФОТОГРАФИЯ И ТЕСТ -->
+
+      <div class="image-column">
+
+        <div class="image-slot">
+          <img src="assets/photo3.jpg" alt="Фотография к материалу" class="custom-image">
+        </div>
+
+        <div class="quiz-card">
+
+          <div class="quiz-meta">
+            <span>ПРОВЕРЬ СЕБЯ</span>
+            <span>ВОПРОС / 01</span>
+          </div>
+
+          <h2 class="quiz-question">
+            В каком году в МГУ открылось отделение журналистики при филологическом факультете?
+          </h2>
+
+          <div class="quiz-options">
+            <button class="quiz-option" data-answer="wrong">1945</button>
+            <button class="quiz-option" data-answer="correct">1947</button>
+            <button class="quiz-option" data-answer="wrong">1950</button>
+            <button class="quiz-option" data-answer="wrong">1952</button>
+          </div>
+
+          <p class="quiz-feedback" aria-live="polite"></p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer class="footer">
+      <span>Пихтовников Сергей Алексеевич</span>
+      <a href="secret.html" target="_blank" rel="noopener noreferrer">241-021</a>
+    </footer>
+
+  </main>
+
+  <!-- ЭФФЕКТ ПРИ ПРАВИЛЬНОМ ОТВЕТЕ -->
+
+  <div class="confetti-overlay" id="confettiOverlay" aria-hidden="true">
+    <img src="assets/gif1.GIF" alt="">
+  </div>
+
+  <!-- ЭФФЕКТ ПРИ НЕПРАВИЛЬНОМ ОТВЕТЕ -->
+
+  <div class="clown-overlay" id="clownOverlay" aria-hidden="true">
+    <img src="assets/gif2.gif" alt="">
+  </div>
+
+  <script>
+    const quizOptions = document.querySelectorAll('.quiz-option');
+    const quizFeedback = document.querySelector('.quiz-card .quiz-feedback');
+
+    quizOptions.forEach(option => {
+      option.addEventListener('click', () => {
+
+        quizOptions.forEach(button => {
+          button.disabled = true;
+        });
+
+        if (option.dataset.answer === 'correct') {
+
+          option.classList.add('correct');
+
+          const confettiOverlay = document.getElementById('confettiOverlay');
+
+          confettiOverlay.classList.add('active');
+
+          setTimeout(() => {
+            confettiOverlay.classList.remove('active');
+          }, 3500);
+
+          quizFeedback.textContent =
+            'Верно! Отделение журналистики открылось в 1947 году. В 1952 году на его базе был создан самостоятельный факультет журналистики.';
+
+        } else {
+
+          option.classList.add('wrong');
+
+          document.querySelector('[data-answer="correct"]')
+            .classList.add('correct');
+
+          const clownOverlay = document.getElementById('clownOverlay');
+
+          clownOverlay.classList.add('active');
+
+          setTimeout(() => {
+            clownOverlay.classList.remove('active');
+          }, 3500);
+
+          quizFeedback.textContent =
+            'Не совсем. Правильный ответ: 1947 год. В 1952 году журналистика получила отдельный факультет.';
+        }
+
+      });
+    });
+  </script>
+
+</body>
+</html>
